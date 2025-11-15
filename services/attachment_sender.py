@@ -4,6 +4,7 @@ import pathlib
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver
 
 def attach_and_send(driver, file_path: str) -> bool:
     try:
@@ -66,6 +67,7 @@ def attach_and_send(driver, file_path: str) -> bool:
                 print("  [DEBUG] Trying to press Enter as fallback")
                 from selenium.webdriver.common.keys import Keys
                 actions = webdriver.ActionChains(driver)
+
                 actions.send_keys(Keys.ENTER).perform()
                 time.sleep(1.0)
                 return True
